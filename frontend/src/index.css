@@ -1,0 +1,27 @@
+.icon-container{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding: 8px;
+    transition: background-color .3s ease-in-out;
+}
+
+.icon-container:hover{
+    background: #1e1e1e;
+
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+   
+}
+::-webkit-scrollbar-thumb{
+    background: #888;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
