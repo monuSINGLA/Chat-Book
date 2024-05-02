@@ -170,7 +170,7 @@ const ChatPage = () => {
         >
           
           <form onSubmit={handleConversationSearch}>
-            <Flex alignItems={"center"} gap={2} display={{base:selectedConversation._id?"none": "flex"}} >
+            <Flex alignItems={"center"} gap={2} display={{base : selectedConversation._id?"none": "flex", md: "flex"}} >
               <Input
                 type="text"
                 placeholder="Search for a user"
@@ -240,7 +240,7 @@ const ChatPage = () => {
             flexDirection={"column"}
             justifyContent={"center"}
             alignItems={"center"}
-            height={"400px"}
+            height={"40px"}
           >
             <GiConversation size={100} />
             <Text fontSize={20}>Select a user to chat with</Text>
