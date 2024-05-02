@@ -70,7 +70,7 @@ const UserHeader = ({ user }) => {
                 p={1}
                 borderRadius={"full"}
               >
-                threds.next
+                chatbook.next
               </Text>
             </Flex>
           </Box>
@@ -124,9 +124,9 @@ const UserHeader = ({ user }) => {
                   <CgMoreO size={24} cursor={"pointer"} />
                 </MenuButton>
                 <Portal>
-                  <MenuList bg={"dark"}>
+                  <MenuList bg={"gray.dark"}>
                     <MenuItem bg={"dark"} onClick={copyUrl}>
-                      Copy link
+                    <Text color={"white"}>Copy link</Text>
                     </MenuItem>
                   </MenuList>
                 </Portal>

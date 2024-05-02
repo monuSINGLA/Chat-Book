@@ -140,15 +140,16 @@ const MessageContainer = () => {
 
   return (
     <Flex
+     
       flex={70}
       bg={useColorModeValue("gray.200", "gray.dark")}
       borderRadius={"md"}
       flexDirection={"column"}
       p={2}
       gap={2}
-      mb={{base:-4, md:0}}
+      // mb={{base:-4, md:0}}
       mx={{base:-4, md : 0}}
-      mt={{base:-10, md:0}}
+      // mt={{base:-10, md:0}}
       
       
       
