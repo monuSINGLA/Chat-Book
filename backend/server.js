@@ -9,6 +9,7 @@ import { v2 as cloudinary } from "cloudinary";
 import { app, server } from "./socket/socket.js"; // Import existing app and server instances
 import path, { dirname } from "path";
 import { fileURLToPath } from 'url';
+import job from "./cron/cron.js";
 
 // config
 dotenv.config();
@@ -54,3 +55,5 @@ connectDB()
   .catch((error) => {
     console.error("Database connection error:", error.message);
   });
+
+  job.start()
