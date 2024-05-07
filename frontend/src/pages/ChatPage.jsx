@@ -3,7 +3,6 @@ import { Box, Flex, Text, Input, Button } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { SkeletonCircle, Skeleton } from "@chakra-ui/react";
 import Conversation from "../components/Conversation";
-import { useColorModeValue } from "@chakra-ui/color-mode";
 import { GiConversation } from "react-icons/gi";
 import MessageContainer from "../components/MessageContainer";
 import useShowtoast from "../hooks/useShowToast.js";
@@ -232,7 +231,8 @@ const ChatPage = () => {
           <Flex
           display={{
             base: "none",
-            md: "flex"
+            md: "flex",
+            lg:"flex"
           }}
             flex={70}
             borderRadius={"md"}
@@ -240,7 +240,8 @@ const ChatPage = () => {
             flexDirection={"column"}
             justifyContent={"center"}
             alignItems={"center"}
-            height={"40px"}
+            height={"450px"}
+            
           >
             <GiConversation size={100} />
             <Text fontSize={20}>Select a user to chat with</Text>

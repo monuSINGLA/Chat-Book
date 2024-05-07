@@ -32,7 +32,6 @@ const sendMessage = async (req, res) => {
      const uploadedImage = await cloudinary.uploader.upload(img)
      img = uploadedImage.secure_url
     }
-    console.log(img)
 
     // Add the message to the conversation
     const newMessage = new Message({
