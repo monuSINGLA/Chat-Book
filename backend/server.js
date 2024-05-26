@@ -11,6 +11,7 @@ import path, { dirname } from "path";
 import { fileURLToPath } from 'url';
 import job from "./cron/cron.js";
 import blockPentestTools from "./middleware/blockUserAgent.js";
+import helmet from "helmet";
 
 
 
@@ -23,6 +24,7 @@ app.use(blockPentestTools);
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(helmet.noSniff());
 
 // Determine the directory name of the current module file
 const __filename = fileURLToPath(import.meta.url);
