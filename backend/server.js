@@ -10,7 +10,6 @@ import { app, server } from "./socket/socket.js"; // Import existing app and ser
 import path, { dirname } from "path";
 import { fileURLToPath } from 'url';
 import job from "./cron/cron.js";
-import blockPentestTools from "./middleware/blockUserAgent.js";
 import helmet from "helmet";
 
 
@@ -18,13 +17,35 @@ import helmet from "helmet";
 
 // config
 dotenv.config();
-app.use(blockPentestTools);
 
 // Middleware
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(helmet.noSniff());
+app.use(helmet.referrerPolicy({ policy: 'same-origin' })); // You can adjust the policy as needed
+app.use(helmet.hsts({ maxAge: 31536000, includeSubDomains: true, preload: true }));
+
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],
+    scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", 'https://your-cdn.com'],
+    styleSrc: ["'self'", 'https://your-cdn.com'],
+    // Add more directives as needed
+  },
+}));
+
+app.disable('x-powered-by');
+
+// Middleware to set Content-Security-Policy header
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],
+    scriptSrc: ["'self'"],
+    styleSrc: ["'self'"],
+    // Add more directives as needed
+  },
+}));
 
 // Determine the directory name of the current module file
 const __filename = fileURLToPath(import.meta.url);
