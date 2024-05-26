@@ -10,12 +10,14 @@ import { app, server } from "./socket/socket.js"; // Import existing app and ser
 import path, { dirname } from "path";
 import { fileURLToPath } from 'url';
 import job from "./cron/cron.js";
-import blockScanningTools from "./middleware/blockUserAgent.js";
+import blockPentestTools from "./middleware/blockUserAgent.js";
+
+
 
 
 // config
 dotenv.config();
-app.use(blockScanningTools);
+app.use(blockPentestTools);
 
 // Middleware
 app.use(express.json({ limit: "50mb" }));
