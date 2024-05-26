@@ -54,16 +54,10 @@ app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'"],
     scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
-    styleSrc: ["'self'", 'https://chat-book-cyzn.onrender.com/'],
+    styleSrc: ["'self'", "https://chat-book-cyzn.onrender.com/"], // Add your CDN domain here
     // Add more directives as needed
   },
 }));
-
-// Set up Referrer-Policy header
-app.use(helmet.referrerPolicy({ policy: 'same-origin' }));
-
-// Set up Strict-Transport-Security header
-app.use(helmet.hsts({ maxAge: 31536000, includeSubDomains: true, preload: true }));
 
 // Hide server technologies
 app.use(helmet.hidePoweredBy());
