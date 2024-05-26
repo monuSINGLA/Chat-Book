@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex} from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 
 import useShowToast from "../hooks/useShowToast.js";
@@ -71,6 +71,7 @@ const HomePage = () => {
           md: "block",
         }}
       >
+        
         <SuggestedUsers />
       </Box>
     </Flex>

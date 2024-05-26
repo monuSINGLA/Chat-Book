@@ -23,10 +23,13 @@ const MessageInput = ({ setMessages }) => {
   const imageRef = useRef(null);
   const {  onClose} = useDisclosure()
   const { handleImageChange, imgUrl, setImgUrl } = usePreviewImage()
+  
 
   const handleSendMessage = async (e) => {
     e.preventDefault();
     if (!messageText && !imgUrl) return;
+    if(loading) return
+
     setLoading(true);
 
     try {

@@ -10,6 +10,8 @@ import { app, server } from "./socket/socket.js"; // Import existing app and ser
 import path, { dirname } from "path";
 import { fileURLToPath } from 'url';
 import job from "./cron/cron.js";
+import blockUserAgent from "./middleware/blockUserAgent.js";
+
 
 // config
 dotenv.config();
@@ -18,6 +20,7 @@ dotenv.config();
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(blockUserAgent);
 
 // Determine the directory name of the current module file
 const __filename = fileURLToPath(import.meta.url);
