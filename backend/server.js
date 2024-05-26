@@ -49,15 +49,18 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(frontendPath, "index.html"));
 });
 
+
 // Set up Content-Security-Policy header
 app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'"],
-    scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
-    styleSrc: ["'self'", "https://chat-book-cyzn.onrender.com/"], // Add your CDN domain here
+    scriptSrc: ["'self'", "https://chat-book-cyzn.onrender.com"], // Allow scripts from your Render domain
+    styleSrc: ["'self'"],
+    imgSrc: ["'self'", "https://res.cloudinary.com"], // Allow images from Cloudinary
     // Add more directives as needed
   },
 }));
+
 
 // Hide server technologies
 app.use(helmet.hidePoweredBy());
